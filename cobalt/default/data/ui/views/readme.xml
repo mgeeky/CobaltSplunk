@@ -283,9 +283,6 @@ EXTRACT-output = ^[/A-Z0-9:\s]+\[output\]\s*^(?P&lt;output&gt;.*)
 EXTRACT-type = ^[^\[\n]*\[(?P&lt;type&gt;\w+)
 EXTRACT-tactic = ^[/A-Z0-9:\s]+\[task\]\s*&lt;(?P&lt;tactic&gt;T\d+(?:,\s*(?:T\d+))*),?\s*&gt;
 EXTRACT-ioc = ^[/A-Z0-9:\s]+\[indicator\]\s*(?P&lt;ioc_type&gt;[^:]+):\s+(?P&lt;ioc&gt;[^\s]+)\s+(?P&lt;ioc_size&gt;\d+)\s+bytes\s+(?P&lt;ioc_name&gt;.*)
-EXTRACT-process = (?i)^(?P&lt;process&gt;(?:\[System\s+Process\])|Memory Compression|System|Registry|.+\.exe)\s+(?P&lt;process_id&gt;\d+)\s+(?P&lt;parent_pid&gt;\d+)(?:\s*(?P&lt;arch&gt;x\d{2})\s+(?P&lt;user&gt;[^\s]+)?\s+(?P&lt;session&gt;\d+))?
-EXTRACT-file = ^(?P&lt;filetype&gt;[a-zA-Z])\s+(?P&lt;size&gt;\d+)\s+\b(?P&lt;filetime&gt;\d{2}\/\d{2}\/\d{4}\s+\d{2}:\d{2}:\d{2})\s+(?P&lt;name&gt;.*)$
-EXTRACT-listpath = ^(?P&lt;path&gt;(?:[A-Z]:\\.*)|(?:\\.*))(?:\\\*)?\s*\n^\s*[DF]\t\d+
 
 [weblog]
 EXTRACT-weblog = ^(?P&lt;ip&gt;[^ ]+)[^\[\n]*\[(?P&lt;date_time&gt;[^\]]+)\]\s+"(?P&lt;request&gt;[^"]+)"\s+(?P&lt;status_code&gt;[^ ]+)(?:[^"\n]*"){3}(?P&lt;user_agent&gt;[^"]+)
