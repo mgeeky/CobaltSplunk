@@ -68,7 +68,7 @@ monitored=$($SPLUNK_BIN list monitor -auth "$USERNAME:$PASSWORD" | grep "$LOGS_P
 if [ -z "$monitored" ]; then
 	echo "Adding '$LOGS_PATH' as Cobalt Strike data inputs..."
 
-	$SPLUNK_BIN add monitor $LOGS_PATH/.../weblog.log       -index $INDEX -sourcetype weblog            -hostregex $HOST_REGEX -auth "$USERNAME:$PASSWORD"
+	$SPLUNK_BIN add monitor $LOGS_PATH/.../weblog_*.log     -index $INDEX -sourcetype weblog            -hostregex $HOST_REGEX -auth "$USERNAME:$PASSWORD"
 	$SPLUNK_BIN add monitor $LOGS_PATH/.../beacon_*.log     -index $INDEX -sourcetype beacon_log        -hostregex $HOST_REGEX -auth "$USERNAME:$PASSWORD"
 	$SPLUNK_BIN add monitor $LOGS_PATH/.../keystrokes_*     -index $INDEX -sourcetype keystrokes        -hostregex $HOST_REGEX -auth "$USERNAME:$PASSWORD"
 	$SPLUNK_BIN add monitor $LOGS_PATH/.../events.log       -index $INDEX -sourcetype teamserver_events -hostregex $HOST_REGEX -auth "$USERNAME:$PASSWORD"
